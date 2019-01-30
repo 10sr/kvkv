@@ -21,6 +21,7 @@ _path = "kvkv"
 
 urlpatterns = [
     path(f'{_path}/admin/', admin.site.urls),
+    path(f"{_path}/", include("django.contrib.auth.urls")),
     path(f"{_path}/", include("kvkv.urls")),
     path("", RedirectView.as_view(url=f"{_path}/")),
 ]

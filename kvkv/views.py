@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.http import (
     HttpRequest,
     HttpResponse,
@@ -6,6 +5,7 @@ from django.http import (
     HttpResponseRedirect,
     HttpResponseBadRequest,
 )
+from django.urls import reverse
 
 
 def index(request: HttpRequest) -> HttpResponse:
@@ -14,6 +14,10 @@ def index(request: HttpRequest) -> HttpResponse:
         <a href="e/key1">key1</a>
         <a href="addpair">addpair</a>
         <a href="admin">admin</a>
+        {request.user.is_authenticated}
+        <a href="{reverse("login")}?next={request.path}">Login</a>
+        <a href="{reverse("logout")}?next={request.path}">Logout</a>
+        </p>
         <p>{dir(request)}</p>
         """
     )
