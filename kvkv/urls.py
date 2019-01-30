@@ -8,4 +8,6 @@ from .apps import KvkvConfig
 app_name = KvkvConfig.label
 urlpatterns = [
     path("", views.index, name="index"),
+    path("e/<key>", views.e, name="e"),
+    path("addpair", views.addpair, name="e"),
 ]
