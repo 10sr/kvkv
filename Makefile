@@ -1,4 +1,4 @@
-KVKV_ENV ?= local
+# KVKV_ENV ?= local
 KVKV_PORT ?= 9099
 KVKV_HOST ?= 0.0.0.0
 
@@ -7,8 +7,8 @@ project := proj
 
 pipenv := pipenv
 
-python3 := ${pipenv} run env NERU_ENV=${KVKV_ENV} python3
-manage_py := ${python3} manage.py
+python3 := ${pipenv} run python3
+manage_py := env KVKV_ENV=${KVKV_ENV} ${python3} ./manage.py
 
 
 runserver:
