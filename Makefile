@@ -22,7 +22,7 @@ runserver:
 migrate:
 	${manage_py} $@
 
-create_admin_user:
+create_admin_user create_local_user:
 	${manage_py} $@
 
 
