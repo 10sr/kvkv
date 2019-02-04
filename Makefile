@@ -6,6 +6,7 @@ app := app
 project := proj
 
 pipenv := pipenv
+poetry := poetry
 
 python3 := ${pipenv} run python3
 manage_py := env KVKV_ENV=${KVKV_ENV} ${python3} ./manage.py

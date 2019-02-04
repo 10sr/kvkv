@@ -4,9 +4,9 @@ from django.urls import include, path, re_path
 # from django.views.generic.base import RedirectView
 
 from . import views
-from .apps import KvkvConfig
+from .apps import AppConfig
 
-app_name = KvkvConfig.label
+app_name = AppConfig.label
 urlpatterns = [
     path("", views.index, name="index"),
     path("e/<key>", views.e, name="e"),
