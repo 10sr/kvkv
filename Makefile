@@ -1,6 +1,8 @@
 # KVKV_ENV ?= local
 KVKV_PORT ?= 9099
 KVKV_HOST ?= 0.0.0.0
+KVKV_SQLITE3 ?= ${CURDIR}/db.sqlite3
+export KVKV_SQLITE3
 
 app := app
 project := proj
