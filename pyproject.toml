@@ -5,7 +5,7 @@ description = ""
 authors = ["10sr <8.slashes@gmail.com>"]
 packages = [
     { include = "proj" },
-    { include = "kvkv" },
+    { include = "app" },
 ]
 
 [tool.poetry.dependencies]
