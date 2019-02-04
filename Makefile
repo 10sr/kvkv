@@ -26,6 +26,11 @@ create_admin_user create_local_user:
 	${manage_py} $@
 
 
+app-test:
+	${manage_py} makemigrations --dry-run --check
+	${python3} -Wa manage.py test
+
+
 #########
 # black
 
