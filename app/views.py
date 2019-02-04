@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import (
     HttpRequest,
     HttpResponse,
@@ -27,5 +28,6 @@ def e(request: HttpRequest, key: str) -> HttpResponse:
     return HttpResponse(f"""Add key {key}""")
 
 
+@login_required
 def addpair(request: HttpRequest) -> HttpResponse:
     return HttpResponse(f"""Page used by human to add key value pair.""")
