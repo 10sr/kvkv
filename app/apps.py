@@ -1,6 +1,6 @@
-from django.apps import AppConfig
+import django.apps
 
 
-class KvkvConfig(AppConfig):
-    name = "kvkv"
-    label = "kvkv"
+class AppConfig(django.apps.AppConfig):
+    name = "app"
+    label = "app"
