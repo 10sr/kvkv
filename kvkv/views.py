@@ -24,12 +24,8 @@ def index(request: HttpRequest) -> HttpResponse:
 
 
 def e(request: HttpRequest, key: str) -> HttpResponse:
-    return HttpResponse(
-        f"""Add key {key}"""
-    )
+    return HttpResponse(f"""Add key {key}""")
 
 
 def addpair(request: HttpRequest) -> HttpResponse:
-    return HttpResponse(
-        f"""Page used by human to add key value pair."""
-    )
+    return HttpResponse(f"""Page used by human to add key value pair.""")
