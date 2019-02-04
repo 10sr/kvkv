@@ -19,6 +19,9 @@ runserver:
 migrate:
 	${manage_py} $@
 
+create_admin_user:
+	${manage_py} $@
+
 
 #########
 # black
