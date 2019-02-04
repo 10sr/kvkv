@@ -8,7 +8,7 @@ project := proj
 pipenv := pipenv
 poetry := poetry
 
-python3 := ${poetry} run python3
+python3 := ${pipenv} run python3
 manage_py := env KVKV_ENV=${KVKV_ENV} ${python3} ./manage.py
 
 
@@ -28,7 +28,7 @@ create_admin_user:
 # black
 
 black:
-	${poetry} run black .
+	${pipenv} run black .
 
 black-check:
-	${poetry} run black --check .
+	${pipenv} run black --check .
