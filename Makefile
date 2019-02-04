@@ -11,8 +11,20 @@ python3 := ${pipenv} run python3
 manage_py := env KVKV_ENV=${KVKV_ENV} ${python3} ./manage.py
 
 
+.PHONY: ${MAKECMDGOALS}
+
 runserver:
 	${manage_py} $@ '${KVKV_HOST}:${KVKV_PORT}'
 
 migrate:
 	${manage_py} $@
+
+
+#########
+# black
+
+black:
+	${pipenv} run black .
+
+black-check:
+	${pipenv} run black --check .
