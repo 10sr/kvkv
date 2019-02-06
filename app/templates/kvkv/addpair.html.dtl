@@ -1,0 +1,14 @@
+{% load static %}
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<p>Userinfo: {{ user.username }}</p>
+
+<form action="{% url 'kvkv:addpair_post' %}" method="post">
+    {% csrf_token %}
+    <p><input type="submit" value="AddPair" /></p>
+    <p><input type="text" name="key" /></p>
+    <textarea name="value">{{ value }}</textarea>
+</form>
+
+<a href="{% url 'kvkv:index' %}">Top</a>

@@ -10,5 +10,7 @@ app_name = KvkvConfig.label
 urlpatterns = [
     path("", views.index, name="index"),
     path("e/<key>", views.e, name="e"),
-    path("addpair", views.addpair, name="e"),
+    path("addpair", views.addpair, name="addpair"),
+    path("addpair_post", views.addpair_post, name="addpair_post"),
+    path("view/<key>", views.view, name="view"),
 ]
