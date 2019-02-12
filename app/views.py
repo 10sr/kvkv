@@ -8,6 +8,7 @@ from django.http import (
 )
 from django.template import loader
 from django.urls import reverse
+from django.utils import timezone
 
 from . import models
 from .apps import KvkvConfig
@@ -24,6 +25,7 @@ def index(request: HttpRequest) -> HttpResponse:
         <a href="addpair">addpair</a>
         <a href="admin">admin</a>
         {request.user.is_authenticated}
+        {timezone.now()}
         <a href="{reverse("login")}?next={request.path}">Login</a>
         <a href="{reverse("logout")}?next={request.path}">Logout</a>
         </p>
