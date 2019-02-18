@@ -1,0 +1,10 @@
+{% if entries %}
+<ul>
+    {% for entry in entries %}
+    <li>
+      {{ entry.key }} {{ entry.value }}
+      <a href="{% url 'kvkv:edit' entry.key %}">edit</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}

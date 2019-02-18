@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.http import (
+    Http404,
     HttpRequest,
     HttpResponse,
     HttpResponseNotFound,
@@ -20,9 +21,9 @@ def index(request: HttpRequest) -> HttpResponse:
     return HttpResponse(
         f"""index
         {view}
-        a
         <a href="e/key1">key1</a>
         <a href="addpair">addpair</a>
+        <a href="list">{reverse("kvkv:list")}</a>
         <a href="admin">admin</a>
         {request.user.is_authenticated}
         {timezone.now()}
@@ -35,8 +36,13 @@ def index(request: HttpRequest) -> HttpResponse:
 
 
 def e(request: HttpRequest, key: str) -> HttpResponse:
-    # Api to post and print values as raw text
-    return HttpResponse(f"""{key}""")
+    try:
+        kv = models.KeyValue.objects.get(key=key)
+    except models.KeyValue.DoesNotExist as e:
+        return Http404("""""")
+
+    value = kv.value
+    return HttpResponse(f"""{value}""")
 
 
 @login_required
@@ -91,3 +97,17 @@ def view(request: HttpRequest, key: str) -> HttpResponse:
         f"""Value for {key}
     {value}"""
     )
+
+def list_(request: HttpRequest) -> HttpResponse:
+    entries = models.KeyValue.objects.all()
+    template = loader.get_template("kvkv/list.html.dtl")
+    return HttpResponse(
+        template.render(
+            {
+                "entries": entries
+            }
+        )
+    )
+
+def edit(request: HttpRequest, key: str) -> HttpResponse:
+    return HttpResponse(f"Edit {key}")
