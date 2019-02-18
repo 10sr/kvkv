@@ -19,10 +19,10 @@ manage_py := env KVKV_ENV=${KVKV_ENV} ${python3} ./manage.py
 runserver:
 	${manage_py} $@ '${KVKV_HOST}:${KVKV_PORT}'
 
-migrate:
+migrate makemigrations:
 	${manage_py} $@
 
-create_admin_user create_local_user:
+create_admin_user create_local_user kvkv_create_user:
 	${manage_py} $@
 
 
