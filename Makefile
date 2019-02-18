@@ -22,7 +22,7 @@ runserver:
 migrate makemigrations:
 	${manage_py} $@
 
-create_admin_user create_local_user:
+create_admin_user create_local_user kvkv_create_user:
 	${manage_py} $@
 
 
